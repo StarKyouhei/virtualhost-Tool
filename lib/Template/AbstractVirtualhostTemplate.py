@@ -69,20 +69,22 @@ class AbstractVirtualhostTemplate:
     def __checkFileOverride( self , filePathName ):
         result = True
         if os.path.lexists( filePathName ):
-            inputResult = raw_input( "ファイルが存在します上書きを行いますか？ y/n :" )
+            inputResult = raw_input( "ファイルが存在します上書きを行いますか？ y/n : " )
             if not inputResult == 'y' :
                 result = False
         return result
 
     # 出力データの標準出力
     def showData(self):
+        print "= = = = " + "\n"
         print self._getOutPutData()
+        print "\n" + "= = = = " + "\n"
 
     # 出力データのファイル出力
     def outputData( self , path , name ):
         filePahtName = path + os.sep + name + self.__getFileSuffix()
         if self.__checkFileOverride( filePahtName ) :
             self._dataWriteFile( filePahtName )
-            print 'make file' + filePahtName
+            print 'check file :' + filePahtName
         else:
-            print 'not make'
+            print 'not make 😱'
