@@ -10,7 +10,7 @@ def getSysCurrentDir():
 def setSysPathAppend( name ):
     # カレントディレクトリパスを取得
     curDir      = getSysCurrentDir()
-    checkDir    = curDir + '/' +name
+    checkDir    = curDir + os.sep +name
     if not os.path.lexists( checkDir ):
         raise Exception( checkDir + "は存在しません")
     sys.path.append( checkDir )
