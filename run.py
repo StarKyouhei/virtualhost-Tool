@@ -14,13 +14,17 @@ if __name__ == "__main__":
     from TemplateFactory import Factory
 
     # type
-    typeName    = 'apache'
+    typeName        = 'apache'
     # OS 特に指定ない場合は空を指定
-    osName      = os.sep + 'mac'
+    osName          = os.sep + 'mac'
     # サーバドメイン名をしてい
-    serverName = 'pythonMake.localhost'
+    serverName      = 'pythonMake.localhost'
     # ドキュメントルートディレクトリを指定
-    documentRoot = '/var/www/html'
+    documentRoot    = '/var/www/html'
+    # 出力ディレクトリ名
+    outputDirName   = bootstrap.getSysCurrentDir() + os.sep + 'output'
+    # 上書きを許可するか
+    isOverride      = True
 
     # テンプレート作成ようのFactory作成
     TempalteFactory = Factory()
@@ -34,4 +38,7 @@ if __name__ == "__main__":
     Template.setDocumentRoot( documentRoot )
     # テンプレートファイルを作成
     Template.create()
-    Template.showData()
+    # 標準出力
+    # Template.showData()
+    # 外部ファイル出力
+    Template.outputData( outputDirName , typeName )
