@@ -59,16 +59,30 @@ class AbstractVirtualhostTemplate:
         f.writelines( data ) # シーケンスが引数。
         f.close()
 
-    def __getFileSuffix(self):
-        date = datetime.datetime.today()
-        suffix = date.strftime("%Y-%m-%d")
+    # ファイル名の接尾辞を設定
+    def __getFileSuffix( self ):
+        date    = datetime.datetime.today()
+        suffix  = date.strftime("%Y-%m-%d")
         return '_' + suffix + self.__Extension
 
-    # 作成ファイルの標準出力
+    # 上書きを行うかの確認
+    def __checkFileOverride( self , filePathName ):
+        result = True
+        if os.path.lexists( filePathName ):
+            inputResult = raw_input( "ファイルが存在します上書きを行いますか？ y/n :" )
+            if not inputResult == 'y' :
+                result = False
+        return result
+
+    # 出力データの標準出力
     def showData(self):
         print self._getOutPutData()
 
-    def outputData(self,path,name ):
+    # 出力データのファイル出力
+    def outputData( self , path , name ):
         filePahtName = path + os.sep + name + self.__getFileSuffix()
-        self._dataWriteFile( filePahtName )
-        print 'make file' + filePahtName
+        if self.__checkFileOverride( filePahtName ) :
+            self._dataWriteFile( filePahtName )
+            print 'make file' + filePahtName
+        else:
+            print 'not make'

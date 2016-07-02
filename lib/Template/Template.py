@@ -24,7 +24,6 @@ class TemplateApache(AbstractVirtualhostTemplate):
     # 読み込むテンプレート名を変更する
     def setTempalteName(self,name):
         _templateName = name
-        print _templateName
 
     # 出力するファイルのデータを作成(ここは作成対象のミドルウェアごとに変わる)
     def create(self):

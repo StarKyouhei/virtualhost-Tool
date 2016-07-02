@@ -23,8 +23,6 @@ if __name__ == "__main__":
     documentRoot    = '/var/www/html'
     # 出力ディレクトリ名
     outputDirName   = bootstrap.getSysCurrentDir() + os.sep + 'output'
-    # 上書きを許可するか
-    isOverride      = True
 
     # テンプレート作成ようのFactory作成
     TempalteFactory = Factory()
