@@ -24,5 +24,7 @@ class AbstractVirtualhostTemplate:
         """セットされたテンプレートを作成"""
         return
 
-    def createTemplate(self):
-        print self._template
+    @abstractmethod
+    def showData(self):
+        """セットされたテンプレートを作成"""
+        return
