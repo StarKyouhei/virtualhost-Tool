@@ -10,5 +10,8 @@ if __name__ == "__main__":
 
     from TemplateFactory import Factory
 
-    FactoryMethod = Factory()
-    FactoryMethod.create('apache')
+    # テンプレート作成ようのFactory作成
+    TempalteFactory = Factory()
+    # とりあえずApacheのテンプレートを作成
+    Tempalte = TempalteFactory.create('apache')
+    Tempalte.testmethod()
