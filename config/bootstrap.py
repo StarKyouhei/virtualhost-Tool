@@ -13,4 +13,4 @@ def setSysPathAppend( name ):
     checkDir    = curDir + '/' +name
     if not os.path.lexists( checkDir ):
         raise Exception( checkDir + "は存在しません")
-    sys.path.append('/ufs/guido/lib/python')
+    sys.path.append( checkDir )

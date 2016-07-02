@@ -1,5 +1,11 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
-import sys,os
 
 from config import bootstrap
-bootstrap.setSysPathAppend('lib')
+if __name__ == "__main__":
+    # 読み込むディレクトリを登録 ライブラリー
+    bootstrap.setSysPathAppend('lib')
+
+    import TemplateApache
+    tet = TemplateApache.TemplateApache()
+    tet.setTempalteName('default')
