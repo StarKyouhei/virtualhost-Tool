@@ -20,8 +20,8 @@ class AbstractVirtualhostTemplate:
 
     # テンプレート読み込み実装
     @abstractmethod
-    def setTempalte(self):
-        """セットされたテンプレートを読み込み"""
+    def create(self):
+        """セットされたテンプレートを作成"""
         return
 
     def createTemplate(self):
