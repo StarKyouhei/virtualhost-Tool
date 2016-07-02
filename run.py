@@ -3,9 +3,12 @@
 
 from config import bootstrap
 if __name__ == "__main__":
-    # 読み込むディレクトリを登録 ライブラリー
+    # 読み込むディレクトリを登録 ファクトリー系
+    bootstrap.setSysPathAppend('lib/Factory')
+    # テンプレート系
     bootstrap.setSysPathAppend('lib/Template')
 
-    import TemplateApache
-    tet = TemplateApache.TemplateApache()
-    tet.setTempalteName('default')
+    from TemplateFactory import Factory
+
+    FactoryMethod = Factory()
+    FactoryMethod.create('apache')
